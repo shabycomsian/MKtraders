@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK TRADER - Smart Trading • Live Learning • Consistent Growth</title>
+    <meta name="description" content="Transform into an independent & profitable trader with daily trading signals, complete courses, live mentorship & VIP community access. Join MK TRADER today!">
+    <meta name="keywords" content="trading signals, forex trading, stock market, trading course, mentorship, profitable trading, MK TRADER">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="MK TRADER - Smart Trading • Live Learning • Consistent Growth">
+    <meta property="og:description" content="Daily 30-40 trading signals, complete trading course, live mentorship. Join thousands of profitable traders with MK TRADER.">
+    <meta property="og:type" content="website">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Dark background theme */
+            --background: 220 15% 8%;
+            --foreground: 45 100% 85%;
+            
+            /* Card styling */
+            --card: 220 15% 12%;
+            --card-foreground: 45 100% 85%;
+            
+            /* Gold primary theme */
+            --primary: 45 100% 55%;
+            --primary-foreground: 220 15% 8%;
+            
+            /* Dark secondary */
+            --secondary: 220 15% 15%;
+            --secondary-foreground: 45 100% 85%;
+            
+            /* Muted styling */
+            --muted: 220 15% 15%;
+            --muted-foreground: 45 50% 65%;
+            
+            /* Gold accent */
+            --accent: 45 100% 55%;
+            --accent-foreground: 220 15% 8%;
+            
+            /* Border and input */
+            --border: 220 15% 20%;
+            --success-green: 142 76% 36%;
+            --chart-blue: 217 91% 60%;
+            
+            /* Custom colors */
+            --gold-primary: 45 100% 55%;
+            --gold-secondary: 42 100% 65%;
+            --gold-accent: 48 100% 45%;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Background gradients */
+        .bg-gradient-hero {
+            background: linear-gradient(135deg, hsl(220 15% 8%) 0%, hsl(220 15% 12%) 50%, hsl(45 100% 55% / 0.1) 100%);
+        }
+        
+        .bg-gradient-gold {
+            background: linear-gradient(135deg, hsl(45 100% 55%), hsl(42 100% 65%));
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { 
+                box-shadow: 0 0 5px hsl(var(--gold-primary)), 0 0 10px hsl(var(--gold-primary)); 
+            }
+            50% { 
+                box-shadow: 0 0 10px hsl(var(--gold-primary)), 0 0 20px hsl(var(--gold-primary)), 0 0 30px hsl(var(--gold-primary)); 
+            }
+        }
+        
+        @keyframes pulse-gold {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-sparkle {
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        .animate-pulse-gold {
+            animation: pulse-gold 2s ease-in-out infinite;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        /* Header Styles */
+        .header {
+            border-bottom: 1px solid hsl(var(--gold-primary) / 0.2);
+            background: hsl(var(--background) / 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid hsl(var(--gold-primary));
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: hsl(var(--gold-primary));
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+        
+        .btn-hero {
+            background: linear-gradient(135deg, hsl(45 100% 55%), hsl(42 100% 65%));
+            color: hsl(var(--primary-foreground));
+            padding: 0.75rem 2rem;
+            font-size: 1.125rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 30px hsl(45 100% 55% / 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        .btn-hero:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px hsl(45 100% 55% / 0.4);
+        }
+        
+        .btn-whatsapp {
+            background: hsl(var(--success-green));
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: hsl(var(--success-green) / 0.9);
+            transform: scale(1.05);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid hsl(var(--border));
+            color: hsl(var(--foreground));
+        }
+        
+        .btn-outline:hover {
+            background: hsl(var(--accent) / 0.1);
+        }
+        
+        .btn-premium {
+            background: hsl(var(--gold-primary));
+            color: hsl(var(--primary-foreground));
+            border: 2px solid hsl(var(--gold-secondary));
+            padding: 0.75rem 2rem;
+            font-size: 1.125rem;
+            border-radius: 0.75rem;
+        }
+        
+        .btn-premium:hover {
+            background: hsl(var(--gold-secondary));
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 5rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-logo {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            border: 4px solid hsl(var(--gold-primary));
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 10px 30px hsl(45 100% 55% / 0.3);
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, hsl(45 100% 55%), hsl(42 100% 65%));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 4vw, 1.875rem);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: hsl(var(--gold-secondary));
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 3rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .section-bg {
+            background: hsl(var(--background) / 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: hsl(var(--gold-primary));
+        }
+        
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .feature-card {
+            position: relative;
+            group: hover;
+        }
+        
+        .feature-card-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, hsl(45 100% 55%), hsl(42 100% 65%));
+            border-radius: 0.5rem;
+            filter: blur(8px);
+            opacity: 0.2;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-card-bg {
+            opacity: 0.4;
+        }
+        
+        .feature-card-content {
+            position: relative;
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--gold-primary) / 0.2);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-card-content {
+            border-color: hsl(var(--gold-primary) / 0.4);
+            box-shadow: 0 10px 30px hsl(45 100% 55% / 0.2);
+        }
+        
+        .feature-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            min-width: 2rem;
+        }
+        
+        .feature-text h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: hsl(var(--foreground));
+        }
+        
+        .feature-text p {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+        }
+        
+        /* Mission Section */
+        .mission-card {
+            background: hsl(var(--card) / 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid hsl(var(--gold-primary) / 0.2);
+            box-shadow: 0 10px 30px hsl(45 100% 55% / 0.1);
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+        
+        .mission-text {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .mission-subtext {
+            font-size: 1.125rem;
+            color: hsl(var(--gold-secondary));
+        }
+        
+        /* Differentiators Grid */
+        .diff-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .diff-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .diff-card {
+            background: hsl(var(--card) / 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid hsl(var(--gold-primary) / 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .diff-card:hover {
+            border-color: hsl(var(--gold-primary) / 0.4);
+        }
+        
+        .diff-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .diff-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: hsl(var(--foreground));
+        }
+        
+        .diff-card p {
+            color: hsl(var(--muted-foreground));
+        }
+        
+        /* CTA Section */
+        .cta-card {
+            background: linear-gradient(135deg, hsl(45 100% 55%), hsl(42 100% 65%));
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            color: hsl(var(--primary-foreground));
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .btn-cta {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.75rem 2rem;
+            font-size: 1.125rem;
+            border-radius: 0.75rem;
+        }
+        
+        .btn-cta:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        .footer {
+            border-top: 1px solid hsl(var(--gold-primary) / 0.2);
+            background: hsl(var(--background) / 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid hsl(var(--gold-primary));
+        }
+        
+        .footer-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: hsl(var(--gold-primary));
+        }
+        
+        .footer-copyright {
+            color: hsl(var(--muted-foreground));
+        }
+        
+        /* Celebration Effects */
+        .celebration-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            opacity: 0.2;
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: hsl(var(--gold-primary));
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+            
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-hero">
+    <!-- Celebration Effects -->
+    <div class="celebration-container" id="celebrationContainer">
+        <!-- Particles will be generated by JavaScript -->
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="lllogo.png" alt="MK TRADER Logo" class="logo animate-glow">
+                    <span class="logo-text">MK TRADER</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div style="max-width: 64rem; margin: 0 auto;">
+                <img src="lllogo.png" alt="MK TRADER" class="hero-logo animate-pulse-gold">
+                
+                <h1 class="hero-title">
+                    Welcome to </br><span class="gradient-text animate-glow">MK TRADER</span>
+                </h1>
+                
+                <div class="hero-subtitle">
+                    <span class="animate-pulse-gold">📈 Smart Trading</span> • 
+                    <span class="animate-pulse-gold"> Live Learning</span> • 
+                    <span class="animate-pulse-gold"> Consistent Growth</span>
+                </div>
+                
+                <p class="hero-description">
+                    Transform yourself into an independent & profitable trader who can make smart decisions in any market condition.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="https://wa.me/923367309267" class="btn btn-hero">
+                        <i class="fab fa-whatsapp"></i>
+                        Start Your Journey Today!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-bg">
+        <div class="container">
+            <h2 class="section-title">🌟 Why Choose Us?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-fade-in">
+                    <div class="feature-card-bg"></div>
+                    <div class="feature-card-content">
+                        <div class="feature-content">
+                            <div class="feature-icon" style="color: hsl(var(--success-green));">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Daily 30-40 Trading Signals</h3>
+                                <p>Advanced trading signals with high accuracy for consistent profits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="feature-card-bg"></div>
+                    <div class="feature-card-content">
+                        <div class="feature-content">
+                            <div class="feature-icon" style="color: hsl(var(--chart-blue));">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Complete Trading Course</h3>
+                                <p>Basic to advance level comprehensive trading education</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="feature-card-bg"></div>
+                    <div class="feature-card-content">
+                        <div class="feature-content">
+                            <div class="feature-icon" style="color: hsl(var(--gold-primary));">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Live Sessions & Mentorship</h3>
+                                <p>Free access to live trading sessions and personal mentorship</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="feature-card-bg"></div>
+                    <div class="feature-card-content">
+                        <div class="feature-content">
+                            <div class="feature-icon" style="color: hsl(var(--success-green));">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Risk Management</h3>
+                                <p>Money management & risk control strategies for safe trading</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="feature-card-bg"></div>
+                    <div class="feature-card-content">
+                        <div class="feature-content">
+                            <div class="feature-icon" style="color: hsl(var(--chart-blue));">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Step-by-Step Guidance</h3>
+                                <p>Perfect for both beginners and expert traders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card animate-fade-in" style="animation-delay: 0.5s;">
+                    <div class="feature-card-bg"></div>
+                    <div class="feature-card-content">
+                        <div class="feature-content">
+                            <div class="feature-icon" style="color: hsl(var(--gold-primary));">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>VIP Community Access</h3>
+                                <p>Exclusive access to our private trading community</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 64rem; margin: 0 auto; text-align: center;">
+                <h2 class="section-title">🎯 Our Mission</h2>
+                <div class="mission-card">
+                    <p class="mission-text">
+                        💡 <strong>Aapko ek independent & profitable trader banana</strong> jo har market condition me smart decision le sake.
+                    </p>
+                    <p class="mission-subtext">
+                        ⚡ No guesswork – bas clear strategies, live learning & daily signals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiators Section -->
+    <section class="section section-bg">
+        <div class="container">
+            <div style="max-width: 64rem; margin: 0 auto;">
+                <h2 class="section-title">👨‍🏫 What Makes Us Different?</h2>
+                
+                <div class="diff-grid">
+                    <div class="diff-card">
+                        <div class="diff-icon">🔹</div>
+                        <h3>Beginner to Expert</h3>
+                        <p>Complete roadmap for both beginners and expert-level traders</p>
+                    </div>
+                    
+                    <div class="diff-card">
+                        <div class="diff-icon">📡</div>
+                        <h3>Live Support</h3>
+                        <p>Live mentorship & direct support from experienced traders</p>
+                    </div>
+                    
+                    <div class="diff-card">
+                        <div class="diff-icon">⏳</div>
+                        <h3>Limited Slots</h3>
+                        <p>Exclusive program with limited seats - secure your spot now!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-title">
+                    👉 🚀 Start Your Profitable Trading Journey Today!
+                </h2>
+                <p class="cta-text">
+                    📲 Registration is OPEN NOW – Don't Miss Out!
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="https://wa.me/923367309267" class="btn btn-cta" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        Join WhatsApp Group
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23000' stroke='%23FFD700' stroke-width='1'/%3E%3Ctext x='16' y='19' text-anchor='middle' fill='%23FFD700' font-size='10' font-weight='bold'%3EMK%3C/text%3E%3C/svg%3E" alt="MK TRADER" class="footer-logo">
+                <span class="footer-text">MK TRADER</span>
+            </div>
+            <p class="footer-copyright">
+                © 2025 MK TRADER. Building Independent & Profitable Traders.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // WhatsApp functionality
+        function openWhatsApp() {
+            const phoneNumber = "+923367309267"; // Replace with actual WhatsApp number
+            const message = "Hi! I'm interested in joining MK TRADER's trading program. Please provide more details.";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Celebration Effects
+        function createCelebrationEffects() {
+            const container = document.getElementById('celebrationContainer');
+            const symbols = ['💎', '🚀', '📈', '💰', '⭐', '✨', '🔥', '💯'];
+            
+            // Create floating particles
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle animate-float';
+                particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(particle);
+            }
+            
+            // Create gold sparkles
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle animate-sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(sparkle);
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize effects when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createCelebrationEffects();
+            
+            // Add scroll effect to fade in elements
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all feature cards
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+
+        // Add header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'hsl(var(--background) / 0.95)';
+            } else {
+                header.style.background = 'hsl(var(--background) / 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
